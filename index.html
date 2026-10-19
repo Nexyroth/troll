@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trang web rất bình thường</title>
+<!-- Tách CSS rõ ràng: reset -> base -> layout -> components -> chaos -->
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/chaos.css">
+<link rel="stylesheet" href="css/memes.css">
+<link rel="stylesheet" href="css/despair.css">
+<link rel="stylesheet" href="css/device.css">
+<link rel="stylesheet" href="css/virus.css">
+<link rel="stylesheet" href="css/phase5.css">
+<link rel="stylesheet" href="css/phase6.css">
+<link rel="stylesheet" href="css/phase7.css">
+<!-- Phase 6: Tailwind Play CDN (JIT trên trình duyệt, không cần build).
+     Chỉ dùng cho musicPrompt mới. Nếu CDN offline, fallback CSS trong phase6.css
+     vẫn giữ modal hiển thị đúng. Xem ghi chú trong css/phase6.css. -->
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+<!-- layout bằng table, vì năm 2003 gọi và nói xin chào -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td>
+    <marquee behavior="alternate" scrollamount="14" class="marquee-chao">
+      ★彡 CHÀO MỪNG BẠN ĐẾN VỚI TRANG WEB ★彡 BẢN QUYỀN THUỘC VỀ AI ĐÓ ★彡 ĐỪNG TẮT TRANG ★彡
+    </marquee>
+  </td></tr>
+</table>
+
+<h1>TRANG WEB CỰC KỲ CHUYÊN NGHIỆP</h1>
+
+<div id="khung">
+
+  <p>Xin chào! Bạn đang truy cập <b>website số 1 Việt Nam</b> về mọi thứ.
+     <span class="nhay">ĐỪNG BỎ ĐI!</span></p>
+
+  <div id="thanhNgoai"><div id="thanhTienDo"></div></div>
+  <div id="chuTienDo">Đang tải... 100%</div>
+
+  <p>Tiến độ đọc bài của bạn: <b id="docDuoc">100%</b> (con số này có thể giảm)</p>
+
+  <p>
+    <button id="nutTron">Nhấn vào tôi</button>
+    <button class="btn-phu" data-action="create-popup">Tạo thêm thông báo</button>
+  </p>
+
+  <p>Nhập tên của bạn (chúng tôi sẽ sắp xếp lại cho đẹp):<br>
+    <input id="oNhap" type="text" placeholder="Gõ thử xem...">
+  </p>
+
+  <p><b>Xác minh bạn là người:</b> Chọn tất cả ô có 🚌</p>
+  <div id="captcha"></div>
+  <button class="btn-captcha" data-action="verify-captcha">Xác minh</button>
+  <div id="ketQuaCaptcha"></div>
+
+  <p class="note-xu-ly">
+    <span class="xoay">⏳</span> Đang xử lý yêu cầu của bạn... (bắt đầu từ năm 2019)
+  </p>
+
+  <p class="note-nho">
+    Trang này sử dụng cookie, bánh quy, bánh mì và mọi thứ bạn có.
+  </p>
+
+  <!-- 1. LOGIN PORTAL: cổng đăng nhập không thể chạm -->
+  <section id="loginPortal">
+    <h3>🔐 Đăng nhập để tiếp tục (chúc may mắn)</h3>
+    <p style="font-size:13px;color:#0ff;">Nhập email và mật khẩu. Nếu bạn chạm được vào ô nhập thì tính tiếp.</p>
+    <div id="loginArea">
+      <input id="loginEmail" type="text" placeholder="Email của bạn" autocomplete="off">
+      <input id="loginPassword" type="password" placeholder="Mật khẩu" autocomplete="off">
+      <button id="loginBtn" type="button">Đăng nhập</button>
+    </div>
+    <div id="loginMsg"></div>
+  </section>
+
+  <!-- Phase 3.1: IMPOSSIBLE FORM — biểu mẫu bất khả thi -->
+  <section id="impossibleSection">
+    <h3>🔒 Tạo mật khẩu siêu bảo mật</h3>
+    <p class="rule">Quy tắc: Dài &gt;8, không số, không chữ, có ký tự ngoài bàn phím.</p>
+    <form id="impossibleForm">
+      <input type="password" id="impossiblePass" placeholder="Nhập mật khẩu..." autocomplete="off">
+      <button type="submit" id="impossibleBtn">Gửi (Không bao giờ thành công)</button>
+    </form>
+    <div id="impossibleMsg"></div>
+  </section>
+
+  <!-- Phase 3.2: ARE YOU SURE LOOP — nút đóng trang web -->
+  <section style="margin-top:20px;padding:14px;border:4px solid #00f;background:#001;">
+    <h3 style="color:#ff0;font-size:16px;">🚪 Thoát khỏi trang này</h3>
+    <p style="font-size:13px;color:#fff;">Mệt rồi à? Bấm nút dưới đây để đóng trang.</p>
+    <button type="button" data-action="open-sure-loop" style="margin-top:8px;padding:8px 14px;background:#0f0;color:#000;cursor:pointer;font-family:inherit;">Đóng trang web</button>
+  </section>
+
+  <!-- 2. CANCEL = CONFIRM: nút xóa tài khoản giả -->
+  <section style="margin-top:20px;padding:14px;border:4px solid #f00;background:#200;">
+    <h3 style="color:#ff0;font-size:16px;">⚠️ Khu vực nguy hiểm</h3>
+    <p style="font-size:13px;color:#fff;">Tài khoản của bạn đang rất an toàn. Đừng bấm nút dưới đây.</p>
+    <button type="button" data-action="open-delete-dialog" style="margin-top:8px;padding:8px 14px;background:#f00;color:#fff;cursor:pointer;font-family:inherit;">Xóa tài khoản (đừng bấm)</button>
+    <div id="deleteResult"></div>
+  </section>
+
+  <!-- Thêm nội dung để có thể cuộn trang (cho tính năng scroll ngược) -->
+  <p style="margin-top:40px;color:#0ff;">--- Cuộn xuống để khám phá thêm nỗi đau ---</p>
+  <p style="color:#0ff;">Bạn nghĩ cuộn xuống là xong? Không. Trang này dài một cách vô lý.</p>
+  <p style="color:#0ff;">Đoạn này chỉ để trang đủ dài để test scroll ngược. Đừng đọc.</p>
+  <p style="color:#0ff;">Thật sự đừng đọc nữa. Đi lên đi.</p>
+  <p style="color:#0ff;">Bạn vẫn còn ở đây à? Ấn tượng đấy.</p>
+  <p style="color:#0ff;">Hết rồi. Không có gì ở dưới này đâu. Thật đấy.</p>
+  <p style="color:#0ff;">... trừ việc scroll của bạn có thể bị đảo ngược bất cứ lúc nào.</p>
+  <p style="height:600px;"></p>
+  <p style="color:#ff0;">🎉 Bạn đã cuộn tới cuối. Phần thưởng: không có gì cả.</p>
+</div>
+
+<div id="chaser">Đừng đọc dòng này.</div>
+
+<!-- Điểm lãng phí thời gian -->
+<div id="wasteScore">⏱ Điểm lãng phí: 0</div>
+
+<!-- Phase 3.3: FAKE MUTE — nút tắt tiếng giả -->
+<button id="fakeMuteBtn" type="button" title="Bấm để tắt tiếng (đừng tin)">🔊 Bật tiếng</button>
+
+<!-- Spinner không bao giờ kết thúc -->
+<div id="endlessSpinner">
+  <span class="spinner-icon">⏳</span>
+  <span id="spinnerLabel">Đang tải... 0% (sắp xong rồi)</span>
+</div>
+
+<!-- Chatbot ngớ ngẩn -->
+<div id="chatbot">
+  <div id="chatbotHeader">
+    <span>🤖 Hỗ trợ trực tuyến (giả)</span>
+    <button id="chatbotClose" type="button">X</button>
+  </div>
+  <div id="chatbotMessages"></div>
+  <div id="chatbotInputRow">
+    <input id="chatbotInput" type="text" placeholder="Hỏi gì cũng được...">
+    <button id="chatbotSend" type="button">Gửi</button>
+  </div>
+</div>
+
+<div id="gocPhai">
+  <button type="button" data-action="reduce-glare">😎 Giảm chói (dùng thật được)</button>
+  <button type="button" data-action="create-one-popup">➕ Thêm thông báo</button>
+</div>
+
+<div id="cookie">
+  🍪 Chúng tôi tôn trọng quyền riêng tư của bạn (và bán nó cho 47 đối tác).
+  <br>
+  <button type="button" data-action="accept-cookie">Chấp nhận tất cả</button>
+  <button type="button" data-action="accept-cookie">Chấp nhận</button>
+  <button type="button" data-action="accept-cookie">Đồng ý</button>
+  <button type="button" class="nho" data-action="reject-cookie">từ chối</button>
+</div>
+
+<!-- 2. Dialog xóa tài khoản — Hủy = Xóa, Xóa = Hủy (cố tình ngược) -->
+<div id="deleteDialogOverlay">
+  <div id="deleteDialog">
+    <h3>Xóa tài khoản?</h3>
+    <p>Bạn có chắc muốn xóa tài khoản? Hành động này không thể hoàn tác. (Hoặc có thể, ai biết được.)</p>
+    <div id="deleteDialogBtns">
+      <button id="deleteCancelBtn" type="button">Hủy</button>
+      <button id="deleteConfirmBtn" type="button">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<!-- Phase 3.2: Dialog "Bạn có chắc chắn?" — Có và Không đều đi tiếp -->
+<div id="sureOverlay">
+  <div id="sureDialog">
+    <div id="sureQuestion">Bạn có chắc muốn đóng?</div>
+    <div id="sureCounter">Câu hỏi 1/10</div>
+    <button id="sureYesBtn" type="button">Có</button>
+    <button id="sureNoBtn" type="button">Không</button>
+  </div>
+</div>
+
+<!-- 6. Invisible Cow: chấm sáng khi gần bò -->
+<div id="cowDot"></div>
+<div id="cowMsg">🐮 BẠN ĐÃ TÌM THẤY BÒ! Nhưng bò không có gì cho bạn.</div>
+
+<!-- 4. Teapot Rain: banner 418 -->
+<div id="teapotBanner">418: I'm a teapot 🫖</div>
+
+<!-- 8. Fake Update: banner cập nhật giả -->
+<div id="fakeUpdate">
+  <p><b>🎉 Bản cập nhật 2.0 đã sẵn sàng.</b><br>Khởi động lại để nhận 0 tính năng mới.</p>
+  <button id="fakeUpdateRestart" type="button">Khởi động lại</button>
+  <button id="fakeUpdateLater" type="button">Để sau</button>
+  <div id="fakeUpdateProgress"><div id="fakeUpdateProgressBar"></div></div>
+</div>
+
+<!-- Fake system crash (BSOD giả) -->
+<div id="fakeCrash">
+  <h2>:( Máy tính của bạn gặp sự cố</h2>
+  <p>Windows đã gặp sự cố mà nó không thể khôi phục.<br>
+  Chúng tôi chỉ đang đùa thôi. Màn hình này sẽ biến mất sau 2 giây.</p>
+  <p>Mã lỗi: 0x00000000_JUST_KIDDING<br>
+  Đang thu thập thông tin lỗi: 0% (mãi mãi)</p>
+</div>
+
+<!-- Phase 7: Footer Nexyroth — logo N xoay chậm + bản quyền.
+     pointer-events-none để không chặn click. Fallback CSS trong phase7.css. -->
+<div id="nexyroth-footer" class="fixed bottom-0 right-0 z-[99999] bg-black/80 text-white px-4 py-2 text-sm border-t-2 border-l-2 border-pink-500 flex items-center gap-2 pointer-events-none">
+  <svg width="24" height="24" viewBox="0 0 100 100" class="animate-spin-slow" aria-hidden="true">
+    <circle cx="50" cy="50" r="45" fill="none" stroke="#ff00ff" stroke-width="5"/>
+    <text x="50" y="65" font-size="50" font-family="Arial" font-weight="bold" fill="#00ffff" text-anchor="middle">N</text>
+  </svg>
+  <span>Bản quyền thuộc về <b>Nexyroth</b> (và Mèo)</span>
+</div>
+
+<!-- ES Modules: main.js là điểm khởi chạy duy nhất -->
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

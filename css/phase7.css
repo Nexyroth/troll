@@ -1,0 +1,199 @@
+/* ============================================================
+   phase7.css — CSS cho Phase 7: Trói Buộc Người Dùng & Nỗi Sợ HĐH
+   - Footer Nexyroth (fallback nếu Tailwind CDN offline)
+   - Ghost cursor, volume troll, virus scare pro
+   - Mọi module Phase 7 dùng class ở đây, KHÔNG inline cssText / <style>.
+   ============================================================ */
+
+/* --- Footer Nexyroth (fallback cho Tailwind classes trong index.html) --- */
+#nexyroth-footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-top: 2px solid #ec4899;
+  border-left: 2px solid #ec4899;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none; /* Không chặn click vào nội dung bên dưới */
+  font-family: Arial, sans-serif;
+}
+
+/* --- Ghost Cursor: con trỏ ma đi theo chuột thật, trễ 0.4s --- */
+#ghost-cursor {
+  position: fixed;
+  z-index: 9999998;
+  pointer-events: none;
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  /* Transition tạo độ trễ mượt: JS chỉ cần set left/top, CSS tự lag 0.4s */
+  transition: left 0.4s ease, top 0.4s ease, opacity 0.2s;
+}
+
+/* --- Volume Troll: popup "Âm lượng quá nhỏ!" --- */
+#volume-troll-popup {
+  position: fixed;
+  top: 80px;
+  right: 16px;
+  background: #dc2626;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  z-index: 999999;
+  cursor: pointer;
+  max-width: 280px;
+  animation: volumeBounce 1s infinite;
+  font-family: Arial, sans-serif;
+}
+@keyframes volumeBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+#volume-troll-popup .volume-troll-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#volume-troll-popup .volume-troll-icon { font-size: 24px; }
+#volume-troll-popup .volume-troll-title { font-weight: bold; font-size: 14px; }
+#volume-troll-popup .volume-troll-desc { font-size: 12px; }
+#volume-troll-popup .volume-troll-fix {
+  margin-top: 8px;
+  width: 100%;
+  background: #fff;
+  color: #dc2626;
+  font-weight: bold;
+  padding: 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+#volume-troll-popup .volume-troll-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+#volume-troll-popup .volume-troll-close:hover { opacity: 1; }
+
+/* Toast dùng chung Phase 7 (thay alert) */
+.phase7-toast {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 10000000;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  max-width: 90vw;
+  text-align: center;
+}
+
+/* --- Virus Scare Pro: overlay toàn màn hình theo OS --- */
+.virus-pro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box !important;
+}
+.virus-pro-overlay[data-os="Windows"] {
+  background: #0000aa;
+  color: #fff;
+  font-family: monospace;
+}
+.virus-pro-overlay[data-os="Android"] {
+  background: #1a1a1a;
+  color: #fff;
+  font-family: monospace;
+}
+.virus-pro-overlay[data-os="iOS"] {
+  background: #f2f2f7;
+  color: #000;
+  font-family: -apple-system, sans-serif;
+}
+.virus-pro-overlay[data-os="Unknown"] {
+  background: #0000aa;
+  color: #fff;
+  font-family: monospace;
+}
+.virus-pro-art {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  animation: virusShake 0.5s infinite;
+}
+.virus-pro-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+@keyframes virusShake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0); }
+}
+.virus-pro-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.virus-pro-overlay[data-os="iOS"] .virus-pro-title { color: #ff3b30; }
+.virus-pro-overlay:not([data-os="iOS"]) .virus-pro-title { color: #ff0; }
+.virus-pro-msg {
+  font-size: 16px;
+  margin-bottom: 20px;
+  max-width: 400px;
+  line-height: 1.4;
+}
+.virus-pro-fix {
+  padding: 15px 30px;
+  background: #34c759;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.virus-pro-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+}
+.virus-pro-close:hover { opacity: 1; }

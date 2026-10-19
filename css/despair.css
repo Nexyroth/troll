@@ -1,0 +1,114 @@
+/* ============================================================
+   despair.css — CSS cho Phase 3: The Despair Pack
+   impossibleForm, areYouSureLoop, fakeMute
+   scrollHijack + languageSwitch không cần CSS riêng (dùng JS).
+   ============================================================ */
+
+/* --- 1. IMPOSSIBLE FORM --- */
+#impossibleSection {
+  margin-top: 20px;
+  padding: 14px;
+  border: 4px dotted #ff0;
+  background: #100;
+}
+
+#impossibleSection h3 {
+  color: #ff0;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+#impossibleSection .rule {
+  font-size: 12px;
+  color: #f00;
+  margin-bottom: 8px;
+}
+
+#impossiblePass {
+  width: 220px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  border: 3px solid #f00;
+  background: #fff;
+  color: #000;
+  margin-right: 8px;
+}
+
+#impossibleBtn {
+  padding: 8px 14px;
+  font-family: inherit;
+  cursor: pointer;
+  background: #ff0;
+  color: #000;
+  border: 4px outset #888;
+}
+
+#impossibleMsg {
+  margin-top: 8px;
+  color: #ff0;
+  font-size: 13px;
+  min-height: 18px;
+  display: none;
+}
+
+/* --- 2. ARE YOU SURE LOOP --- */
+#sureOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999991;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#sureOverlay.show { display: flex; }
+
+#sureDialog {
+  background: #fff;
+  color: #000;
+  width: 360px;
+  padding: 16px;
+  border: 4px solid #00f;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+#sureQuestion {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+#sureCounter {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+#sureDialog button {
+  padding: 8px 18px;
+  margin: 0 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#sureYesBtn { background: #0f0; }
+#sureNoBtn { background: #eee; }
+
+/* --- 3. FAKE MUTE --- */
+#fakeMuteBtn {
+  position: fixed;
+  right: 8px;
+  top: 50px;
+  z-index: 9997;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  background: #222;
+  color: #0f0;
+  border: 3px outset #888;
+  cursor: pointer;
+}

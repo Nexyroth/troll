@@ -1,0 +1,268 @@
+/* ============================================================
+   phase5.css — CSS cho Phase 5: Troll Sound + Cookie Hell +
+   Impossible Age Verify + ToS Nightmare
+   Không inline cssText trong JS. Tất cả style tập trung ở đây.
+   ============================================================ */
+
+/* --- 5.1 TROLL SOUND --- */
+#troll-sound-btn {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  padding: 15px 30px;
+  background: #ff0;
+  color: #f00;
+  border: 5px outset #f0f;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 20px #f0f;
+}
+
+#troll-mute-btn {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  z-index: 999999;
+  width: 15px;
+  height: 15px;
+  font-size: 8px;
+  padding: 0;
+  line-height: 1;
+  background: #333;
+  color: #666;
+  border: none;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.3s;
+}
+
+/* Sau 20s, nút tắt trở nên "tìm được" hơn — troll có tâm */
+#troll-mute-btn.findable {
+  width: auto;
+  height: auto;
+  padding: 6px 10px;
+  font-size: 12px;
+  opacity: 0.9;
+  background: #f00;
+  color: #fff;
+}
+
+#troll-sound-error {
+  position: fixed;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  background: #333;
+  color: #ff0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+/* --- 5.2 COOKIE HELL --- */
+.cookie-hell-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #000;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  width: 320px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.cookie-hell-popup h3 { margin: 0 0 10px; color: #333; }
+.cookie-hell-popup p { font-size: 14px; color: #666; margin-bottom: 20px; }
+
+.cookie-hell-accept {
+  width: 100%;
+  padding: 12px;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cookie-hell-reject {
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  color: #007aff;
+  border: 1px solid #007aff;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.cookie-hell-x {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+}
+
+.cookie-hell-success {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f0;
+  color: #000;
+  padding: 15px 30px;
+  border-radius: 8px;
+  z-index: 1000000;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* --- 5.2 IMPOSSIBLE AGE VERIFY --- */
+.age-verify-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #000;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  width: 340px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.age-verify-popup h3 { margin: 0 0 10px; color: #333; }
+.age-verify-popup .hint { font-size: 13px; color: #666; margin-bottom: 15px; }
+
+.age-verify-popup select,
+.age-verify-popup input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.age-verify-btn {
+  width: 100%;
+  padding: 12px;
+  background: #34c759;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.age-verify-result {
+  font-size: 13px;
+  color: #f00;
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+.age-verify-x {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+}
+
+/* --- 5.2 TOS NIGHTMARE --- */
+.tos-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  width: 400px;
+  max-height: 80vh;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.tos-popup h3 { margin: 0 0 10px; }
+
+.tos-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  max-height: 300px;
+}
+
+.tos-content p { margin: 5px 0; }
+.tos-content p.tos-new { color: #f00; font-weight: bold; }
+.tos-content p.tos-count { color: #666; font-style: italic; }
+
+.tos-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.tos-accept-btn {
+  width: 100%;
+  padding: 12px;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tos-accept-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.tos-x {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+}
+
+.tos-progress {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 8px;
+}

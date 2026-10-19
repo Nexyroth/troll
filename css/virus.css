@@ -1,0 +1,230 @@
+/* ============================================================
+   virus.css — CSS cho Phase 4.1: Virus Scare (Android & iOS)
+   Không inline cssText trong JS. Không inject <style> động.
+   Flicker được làm chậm xuống 0.35s alternate (~1.4Hz) để ở dưới
+   ngưỡng 3Hz an toàn — sườn gốc dùng 0.15s (~3.3Hz) là hơi nhanh.
+   ============================================================ */
+
+/* --- ANDROID: overlay nhấp nháy --- */
+.android-flicker-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999998;
+  background: rgba(255, 0, 0, 0.05);
+  animation: android-flicker 0.35s infinite alternate;
+}
+
+@keyframes android-flicker {
+  0% { opacity: 0; }
+  100% { opacity: 1; background: rgba(255, 0, 0, 0.12); }
+}
+
+/* --- ANDROID: popup virus --- */
+.android-virus-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1a1a1a;
+  color: #fff;
+  padding: 25px;
+  border: 3px solid #ff3b30;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 59, 48, 0.8);
+  z-index: 999999;
+  width: 320px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.android-virus-icon { font-size: 50px; margin-bottom: 10px; }
+.android-virus-title { color: #ff3b30; margin: 0 0 10px; font-size: 22px; }
+.android-virus-desc { font-size: 14px; margin-bottom: 15px; line-height: 1.4; }
+.android-virus-desc b { color: #ff3b30; }
+
+.android-virus-track {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.android-virus-bar {
+  height: 100%;
+  width: 0%;
+  background: #ff3b30;
+  border-radius: 4px;
+  transition: width 0.2s;
+}
+
+.android-virus-status { font-size: 12px; color: #aaa; margin-bottom: 15px; }
+
+.android-virus-fix-btn {
+  width: 100%;
+  padding: 12px;
+  background: #ff3b30;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.android-virus-close-btn {
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #555;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.android-virus-x {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  color: #aaa;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Toast dùng chung cho cả 2 virus scare (thay cho alert) */
+.virus-toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 1000000;
+  font-size: 14px;
+  font-family: sans-serif;
+  text-align: center;
+  max-width: 90vw;
+}
+
+.virus-toast--error { color: #ff3b30; }
+.virus-toast--bottom { bottom: 20px; }
+.virus-toast--top { top: 20px; background: #ff3b30; }
+.virus-toast--pill { bottom: 30px; border-radius: 20px; padding: 12px 24px; }
+
+/* --- iOS: overlay + dialog --- */
+.ios-virus-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ios-virus-dialog {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.ios-virus-logo { font-size: 40px; margin-bottom: 5px; }
+.ios-virus-title { color: #000; margin: 0 0 5px; font-size: 20px; font-weight: 600; }
+.ios-virus-subtitle { color: #666; font-size: 12px; margin: 0 0 15px; }
+
+.ios-virus-warning {
+  background: #fff3cd;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.ios-virus-warning p { margin: 0; font-size: 14px; color: #856404; }
+.ios-virus-warning p + p { margin: 5px 0 0; font-size: 13px; }
+
+.ios-storage { margin-bottom: 15px; }
+.ios-storage-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.ios-storage-bar {
+  width: 100%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+
+.ios-storage-bar .seg-photos { width: 40%; background: #007aff; }
+.ios-storage-bar .seg-apps { width: 20%; background: #34c759; }
+.ios-storage-bar .seg-ios { width: 15%; background: #ff9500; }
+.ios-storage-bar .seg-virus { width: 15%; background: #ff3b30; }
+.ios-storage-bar .seg-other { width: 10%; background: #5856d6; }
+
+.ios-storage-legend {
+  display: flex;
+  justify-content: space-around;
+  font-size: 9px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.ios-storage-legend .virus { color: #ff3b30; font-weight: bold; }
+
+.ios-virus-remove-btn {
+  width: 100%;
+  padding: 14px;
+  background: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.ios-virus-later-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #007aff;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ios-virus-x {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #999;
+}

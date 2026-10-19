@@ -1,0 +1,20 @@
+/* ============================================================
+   reset.css — CSS reset "có tâm nhưng phá hoại"
+   Tội lỗi cố ý được giữ lại, có comment giải thích.
+   ============================================================ */
+
+/* Tội lỗi #1: box-sizing content-box toàn cục.
+   Lý do giữ lại: để mọi padding/border đều tính sai như bản gốc.
+   Đây là FEATURE, không phải bug. Đừng sửa. */
+*, *::before, *::after {
+  box-sizing: content-box !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  font: inherit;
+}

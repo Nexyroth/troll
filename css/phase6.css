@@ -1,0 +1,128 @@
+/* ============================================================
+   phase6.css — CSS cho Phase 6: Music Prompt (Tailwind + fallback)
+   - Tailwind Play CDN được load trong <head> để dùng utility classes.
+   - Nhưng Tailwind giả định box-sizing: border-box, trong khi reset.css của
+     dự án cố tình đặt content-box !important toàn cục. Nếu không fix, modal
+     Tailwind sẽ vỡ layout (padding cộng thêm vào width).
+     => Khôi phục border-box RIÊNG trong music prompt.
+   - Fallback bằng ID selector: nếu CDN offline / bị chặn, modal vẫn hiển thị
+     đúng (bottom sheet mobile, dialog giữa màn hình desktop) nhờ CSS dưới đây.
+     Tailwind chỉ là lớp "trang điểm", không phải phụ thuộc bắt buộc.
+   ============================================================ */
+
+/* Khôi phục border-box trong music prompt để Tailwind hoạt động đúng */
+#music-prompt-overlay,
+#music-prompt-overlay *,
+#music-prompt-overlay *::before,
+#music-prompt-overlay *::after {
+  box-sizing: border-box !important;
+}
+
+/* Fallback layout — trùng với class Tailwind trong JS để không phụ thuộc CDN */
+#music-prompt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 0;
+}
+
+#music-prompt-modal {
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+  transform: translateY(0);
+  transition: transform 0.3s;
+}
+
+/* Desktop: dialog giữa màn hình */
+@media (min-width: 640px) {
+  #music-prompt-overlay {
+    align-items: center;
+    padding: 16px;
+  }
+  #music-prompt-modal {
+    max-width: 28rem; /* = sm:max-w-md */
+    border-radius: 16px;
+    padding: 32px;
+  }
+}
+
+.music-prompt-icon { font-size: 48px; margin-bottom: 12px; }
+.music-prompt-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+@media (min-width: 640px) {
+  .music-prompt-title { font-size: 24px; }
+}
+.music-prompt-desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.music-prompt-btns { display: flex; flex-direction: column; gap: 12px; }
+
+.music-prompt-accept {
+  width: 100%;
+  padding: 14px 16px;
+  background: #22c55e;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.music-prompt-accept:hover { background: #16a34a; }
+
+.music-prompt-fake-decline {
+  width: 100%;
+  padding: 12px 16px;
+  background: #facc15;
+  color: #111827;
+  font-weight: 600;
+  border-radius: 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.music-prompt-fake-decline:hover { background: #eab308; }
+
+.music-prompt-real-decline {
+  width: 100%;
+  padding: 8px 16px;
+  color: #9ca3af;
+  font-size: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.music-prompt-real-decline:hover { color: #4b5563; }
+
+.music-prompt-toast {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ef4444;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 1000000;
+  font-size: 14px;
+  font-family: sans-serif;
+}

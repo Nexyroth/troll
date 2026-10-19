@@ -1,0 +1,76 @@
+/* ============================================================
+   layout.css — khung, table layout, các vùng chính
+   Giữ lại <table> layout vì năm 2003 gọi và nói xin chào.
+   ============================================================ */
+
+#khung {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 8px groove #0ff;
+  position: relative;
+  z-index: 5;
+}
+
+#thanhNgoai {
+  height: 26px;
+  background: #333;
+  border: 4px inset #999;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+#thanhTienDo {
+  height: 26px;
+  width: 100%;
+  background: repeating-linear-gradient(45deg, #0f0, #0f0 10px, #080 10px, #080 20px);
+  transition: width 0.25s linear;
+}
+
+#chuTienDo {
+  text-align: center;
+  color: #ff0;
+  font-size: 13px;
+}
+
+/* Góc phải: nút Giảm chói + Thêm thông báo */
+#gocPhai {
+  position: fixed;
+  right: 8px;
+  bottom: 90px;
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#gocPhai button {
+  font-family: inherit;
+  font-size: 11px;
+  padding: 6px;
+  border: 3px outset #888;
+  background: #222;
+  color: #0f0;
+  cursor: pointer;
+}
+
+/* Marquee chào mừng */
+.marquee-chao {
+  background: #000;
+  color: #0ff;
+  font-size: 20px;
+  padding: 6px 0;
+}
+
+/* Chữ nhỏ cuối trang */
+.note-nho {
+  font-size: 11px;
+  color: #555;
+}
+
+.note-xu-ly {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #0ff;
+}

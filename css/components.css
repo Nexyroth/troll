@@ -1,0 +1,310 @@
+/* ============================================================
+   components.css — nút, input, captcha, popup, cookie, chaser,
+   chatbot, spinner, fake crash, điểm lãng phí
+   ============================================================ */
+
+/* --- NÚT CHẠY TRỐN --- */
+#nutTron {
+  position: relative;
+  display: inline-block;
+  padding: 12px 22px;
+  background: #ff0;
+  color: #f00;
+  border: 6px outset #f0f;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 50;
+  transition: left 0.12s, top 0.12s;
+}
+
+.btn-phu {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* --- Ô NHẬP TỰ ĐẢO CHỮ --- */
+#oNhap {
+  width: 60%;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 5px dashed #0f0;
+  background: #000;
+  color: #0ff;
+  caret-color: #f0f;
+}
+
+/* --- CAPTCHA BẤT KHẢ THI --- */
+#captcha {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  gap: 6px;
+  margin: 10px 0;
+  justify-content: start;
+}
+
+#captcha div {
+  width: 70px;
+  height: 70px;
+  font-size: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border: 4px solid #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+#captcha div.chon {
+  border-color: #0f0;
+  background: #030;
+}
+
+#ketQuaCaptcha {
+  color: #ff0;
+  font-size: 13px;
+  height: 18px;
+}
+
+.btn-captcha {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+/* --- POPUP CHAOS --- */
+.popup {
+  position: fixed;
+  z-index: 99999;
+  width: 300px;
+  padding: 10px;
+  background: #ff0;
+  color: #f00;
+  border: 8px ridge #00f;
+  box-shadow: 0 0 0 5px #0f0, 0 0 20px #000;
+  font-size: 14px;
+}
+
+.popup-title {
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.popup-body {
+  margin-bottom: 10px;
+}
+
+.popup-btns {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.popup-btns button {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 5px 10px;
+  border: 4px outset #888;
+  background: #ccc;
+  cursor: pointer;
+}
+
+/* --- CHASER: HỘP CHẠY TRỐN KHỎI CON TRỎ --- */
+#chaser {
+  position: fixed;
+  z-index: 99998;
+  left: 60%;
+  top: 40%;
+  padding: 8px 12px;
+  background: #000;
+  color: #0f0;
+  border: 4px dotted #f0f;
+  font-size: 13px;
+  transition: left 0.1s, top 0.1s;
+  pointer-events: none;
+}
+
+/* --- COOKIE BANNER BẤT TỬ --- */
+/* Phase 7 fix "Cookie trôi": ép fixed + z-index cực cao bằng !important.
+   Trước đây z-index 9999 thấp hơn popup (99999) / trail (999999) nên banner
+   bị popup khác đè lên, trông như bị trôi / mất. */
+#cookie {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 999999 !important;
+  background: #000;
+  color: #fff;
+  border-top: 8px solid #f0f;
+  padding: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+
+#cookie button {
+  font-family: inherit;
+  font-size: 13px;
+  margin: 0 4px;
+  padding: 6px 14px;
+  border: 4px outset #0ff;
+  background: #033;
+  color: #0ff;
+  cursor: pointer;
+}
+
+#cookie .nho {
+  font-size: 9px;
+  padding: 2px 4px;
+  border-width: 1px;
+  opacity: 0.5;
+}
+
+/* Phase 7: thông báo khi bấm "từ chối" — không phá nút */
+#cookie-reject-msg {
+  margin-top: 8px;
+  color: #ff0;
+  font-weight: bold;
+}
+
+/* --- TRAIL EMOJI THEO CHUỘT --- */
+.trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999999;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+  animation: trailFade 0.9s forwards;
+}
+
+/* --- SPINNER KHÔNG BAO GIỜ KẾT THÚC --- */
+#endlessSpinner {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 9997;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #000;
+  color: #0f0;
+  border: 3px solid #f0f;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+#endlessSpinner .spinner-icon {
+  display: inline-block;
+  animation: quay 0.8s linear infinite;
+  font-size: 18px;
+}
+
+/* --- ĐIỂM LÃNG PHÍ THỜI GIAN --- */
+#wasteScore {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  z-index: 9997;
+  background: #ff0;
+  color: #f00;
+  border: 4px ridge #00f;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* --- CHATBOT NGỚ NGẨN --- */
+#chatbot {
+  position: fixed;
+  right: 8px;
+  bottom: 180px;
+  z-index: 9996;
+  width: 230px;
+  background: #fff;
+  color: #000;
+  border: 4px outset #888;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+
+#chatbotHeader {
+  background: #00f;
+  color: #fff;
+  padding: 6px 8px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chatbotHeader button {
+  background: #f00;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+#chatbotMessages {
+  height: 110px;
+  overflow-y: auto;
+  padding: 6px;
+  background: #eee;
+}
+
+#chatbotMessages div {
+  margin-bottom: 6px;
+}
+
+#chatbotInputRow {
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+}
+
+#chatbotInput {
+  flex: 1;
+  padding: 4px;
+  font-size: 12px;
+}
+
+#chatbotSend {
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+/* --- FAKE SYSTEM CRASH (BSOD GIẢ) --- */
+/* Phase 7 fix "BSOD mất chữ": ép fixed + !important để không bị cuộn trôi.
+   (Trước đây đã là fixed, nhưng thiếu !important nên có thể bị rule khác đè.) */
+#fakeCrash {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  inset: 0;
+  z-index: 9999999;
+  background: #0000aa;
+  color: #fff;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  padding: 60px;
+  display: none;
+  line-height: 1.6;
+}
+
+#fakeCrash.show {
+  display: block;
+}
+
+#fakeCrash h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,56 @@
+/* ============================================================
+   base.css — biến, typography chung, body
+   Mọi màu chói lóa tập trung ở đây để dễ chỉnh.
+   ============================================================ */
+
+:root {
+  /* Bảng màu "chói lóa" — đổi ở đây là đổi cả trang */
+  --bg-1: #ff00ff;
+  --bg-2: #00ffff;
+  --bg-3: #ffff00;
+  --bg-4: #00ff00;
+  --bg-5: #ff0000;
+  --bg-6: #ffffff;
+  --bg-7: #000000;
+
+  --text-main: #00ff00;
+  --text-accent: #ffff00;
+  --text-link: #00ffff;
+
+  /* Tần số nhấp nháy — giữ dưới 3Hz cho an toàn */
+  --blink-duration: 0.6s;
+  --bg-cycle-duration: 1.2s;
+  --rainbow-duration: 2.5s;
+
+  --font-chaos: "Comic Sans MS", "Chalkboard SE", "Papyrus", cursive;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: var(--font-chaos) !important;
+  font-size: 17px !important;
+  color: var(--text-main) !important;
+  background: var(--bg-1) !important;
+  cursor: crosshair !important;
+  overflow-x: hidden !important;
+  transition: background-color 0.15s linear;
+}
+
+h1 {
+  font-size: 42px !important;
+  text-align: center;
+  color: #ff0;
+  text-shadow: 3px 3px 0 #f00, -3px -3px 0 #00f;
+  animation: cauVong var(--rainbow-duration) linear infinite,
+             lac 0.7s ease-in-out infinite alternate;
+  margin: 20px 0 !important;
+}
+
+p {
+  margin: 12px 0;
+}
+
+b {
+  font-weight: bold;
+}

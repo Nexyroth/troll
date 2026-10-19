@@ -1,0 +1,62 @@
+/* ============================================================
+   chaos.css — animations, hiệu ứng nhấp nháy, trail, glitch
+   Tất cả keyframes tập trung ở đây.
+   ============================================================ */
+
+@keyframes cauVong {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+@keyframes lac {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+@keyframes nhay {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@keyframes quay {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes trailFade {
+  to { opacity: 0; transform: translate(-50%, -50%) scale(2.2); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -2px); }
+  80% { transform: translate(1px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* Phase 7: logo Nexyroth xoay chậm */
+@keyframes spin-slow {
+  100% { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+  transform-origin: center;
+}
+
+.nhay {
+  animation: nhay var(--blink-duration) steps(1) infinite;
+  color: #f00;
+  font-weight: bold;
+}
+
+.xoay {
+  display: inline-block;
+  animation: quay 1.4s linear infinite;
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}

@@ -1,0 +1,132 @@
+/* ============================================================
+   device.css — CSS cho Phase 4: Mỗi Thiết Bị Một Nỗi Đau
+   Windows update, Android battery, iOS iCloud + camera dot.
+   Không inline cssText trong JS — tất cả style tập trung ở đây.
+   ============================================================ */
+
+/* --- WINDOWS: màn hình cập nhật bất tử --- */
+.win-update-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0078d7;
+  color: #fff;
+  z-index: 9999998;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.win-update-icon { font-size: 80px; margin-bottom: 20px; }
+.win-update-title { font-weight: 300; font-size: 32px; margin: 0; }
+.win-update-subtitle { font-size: 18px; margin-top: 20px; text-align: center; padding: 0 20px; }
+
+.win-progress-track {
+  width: 300px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-top: 30px;
+}
+
+.win-progress-bar { height: 100%; width: 0%; background: #fff; transition: width 0.3s; }
+.win-percent { font-size: 24px; margin-top: 10px; }
+
+.win-esc-hint { font-size: 14px; opacity: 0.8; margin-top: 12px; text-align: center; }
+
+.win-exit-btn {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background: #fff;
+  color: #0078d7;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.win-error-code {
+  position: absolute;
+  bottom: 40px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* --- ANDROID: popup pin nổ --- */
+.android-popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 999999;
+  text-align: center;
+  font-family: sans-serif;
+  width: 280px;
+}
+
+.android-popup-icon { font-size: 40px; margin-bottom: 10px; }
+.android-popup-title { color: #d32f2f; margin: 0 0 10px; }
+.android-popup-desc { font-size: 14px; margin-bottom: 15px; }
+
+.android-close-btn {
+  padding: 10px 20px;
+  background: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.android-close-btn-stuck { background: #000; }
+
+/* --- iOS: thông báo iCloud + chấm xanh camera giả --- */
+.ios-noti {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #000;
+  padding: 15px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ios-noti-icon { font-size: 30px; }
+.ios-noti-title { font-weight: bold; font-size: 15px; }
+.ios-noti-desc { font-size: 13px; }
+
+.ios-camera-dot {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  background: #34c759;
+  border-radius: 50%;
+  z-index: 999999;
+  animation: pulse-green 1s infinite;
+}
+
+@keyframes pulse-green {
+  0% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.7); }
+  70% { opacity: 0.7; box-shadow: 0 0 0 10px rgba(52, 199, 89, 0); }
+  100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 199, 89, 0); }
+}
